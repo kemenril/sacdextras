@@ -9,7 +9,7 @@ You may dump information from any set of one or more files in either human-reada
 The Makefile should be sufficient.  There are two interesting targets, one for *sacdextras*, and one for *shared*.  The former links statically with the object files generated in the man *sacd* build in the parent directory.  The latter uses the share library generated when you *make shared* up there.
 
 ### Usage
-
+```
    sacdinfo [-o outfile] [-j] [-s SECTION] [-t TRACK] <file> [file] [file...]
        -o, --output       : Write the output to a given file.
        -j, --json         : Format the output as JSON, instead of plain text.
@@ -18,6 +18,6 @@ The Makefile should be sufficient.  There are two interesting targets, one for *
                                 specify a section, and only a single file)
        -h, --help         : Show this message
    Note that track and section may be left out, and the default is toread everything.
-
+```
 
 
