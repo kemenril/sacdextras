@@ -1,0 +1,35 @@
+.TH SACD 1 "05 July 2025" "0.1" "User Manual"
+
+.SH NAME
+sacdinfo \- dump information from SACD files
+
+.SH SYNOPSIS
+sacdinfo [\fB-o\fP outfile\fR] [\fB-j\fR] [\fB-s\fP SECTION\fR] [\fB-t\fP TRACK\fR] <\fPfile\fR> [\fPfile\fR] [\fPfile...\fR]
+.br
+sacdinfo <\fB-h\fR>
+.SH OPTIONS
+.TP
+-o, --output
+Write the output to \fPoutfile\fR. 
+.TP
+-j, --json
+Format the output as JSON, rather than plain text.
+.TP
+-s, --section
+The section from which to read data.  This is S for Stereo, or M for Multitrack,
+but can be any short name you like beginning with the letter of the section you
+actually want.
+.TP
+-t, --track
+If you have specified a single file, and have specified a secion, you may also
+specify a track, and see only the information about that track.
+.TP
+-h, --help
+Show help message
+
+.SH AUTHOR
+Christopher Smith <protheus@byteorder.net>
+
+.SH SEE ALSO
+man\fP 1 sacd\fR - For the main sacd utility.
+

@@ -7,7 +7,7 @@ CXX = g++
 
 CXXFLAGS_32 = -msse2
 CXXFLAGS_64 =
-CXXFLAGS = $(CXXFLAGS_$(ARCH)) -std=c++11 -Wall -O3
+CXXFLAGS = $(CXXFLAGS_$(ARCH)) -fPIC -std=c++11 -Wall -O3
 #CXXFLAGS += -g -ggdb3
 
 VPATH = libdstdec:libdsd2pcm:libsacd
@@ -20,11 +20,23 @@ LIBRARY_DIRS = libdstdec libdsd2pcm libsacd
 LDFLAGS = $(foreach librarydir,$(LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(LIBRARIES),-l$(library))
 
+CONTRIBDIR=contrib
+CONTRIBS=sacdinfo
+
 PREFIX := /usr
 
 .PHONY: all clean install
 
 all: clean $(PNAME)
+
+contrib: $(PNAME)
+	for prog in $(CONTRIBS);do $(MAKE) -C $(CONTRIBDIR)/$$prog;done
+
+contrib_shared: shared
+	for prog in $(CONTRIBS);do $(MAKE) -C $(CONTRIBDIR)/$$prog shared;done
+
+contrib_install:
+	for prog in $(CONTRIBS);do $(MAKE) -C $(CONTRIBDIR)/$$prog install;done
 
 str_data: dst_defs.h str_data.h str_data.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c libdstdec/str_data.cpp -o libdstdec/str_data.o
