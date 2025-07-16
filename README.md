@@ -7,7 +7,7 @@ Super Audio CD decoder.
 Converts SACD image files, Philips DSDIFF and Sony DSF files to 24-bit high resolution wave files. Handles both DST and DSD streams.
 
 ## Usage
-
+```
 sacd -i infile [-o outdir] [options]
 
   -i, --infile         : Specify the input file (*.iso, *.dsf, *.dff)  
@@ -26,4 +26,4 @@ sacd -i infile [-o outdir] [options]
                          lists either one progress percentage per line, or one
                          status/error message.  
   -h, --help           : Show this help message  
-
+```
